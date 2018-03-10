@@ -75,7 +75,7 @@ class Gishatich extends KendaniEak{
         }
     }
     mahanal() {
-        if (this.energy <= -35) {
+        if (this.energy <= -5) {
             matrix[this.y][this.x] = 0;
             for (var i in gishatichner) {
                 if (this.x == gishatichner[i].x && this.y == gishatichner[i].y) {
