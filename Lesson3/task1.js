@@ -11,7 +11,7 @@ app.get("/google/:search", function(req, res){
  });
 
 app.get("/*", function(req, res){
-    res.send("<hr> 404. That's an error.Page not found <hr>");
+    res.send("<hr> 404. That's an error. <br> The requested URL was not found on this server.<hr>");
  });
 
 app.listen(3000, function(){
