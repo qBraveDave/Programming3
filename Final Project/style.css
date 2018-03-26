@@ -1,0 +1,48 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	background-color: #ededed;
+	margin: 0;
+	padding: 0;
+}
+canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 800px;
+	margin-top: 30px;
+	border: 2px solid #000;
+}
+
+/* Header */
+
+header {
+	background-color: #35424a;
+	color: #fff;
+	padding-top: 10px;
+	min-height: 90px;
+	border-bottom: 2px solid #e8491d;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-weight: bold;
+}
+.container h1 {
+	margin-bottom: 15px;
+}
+header .highlight, header .current a {
+	color: #e8491d;
+	font-weight: bold;
+}
+
+.game-info {
+	float: right;
+	left: 0;
+	margin-left: 0;
+	height: 300px;
+	width: 380px;
+	margin-left: -500px;
+	margin-top: 10px; 
+}
