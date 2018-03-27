@@ -42,7 +42,6 @@ header .highlight, header .current a {
 	left: 0;
 	margin-left: 0;
 	height: 300px;
-	width: 380px;
-	margin-left: -500px;
+	width: 320px;
 	margin-top: 10px; 
 }

@@ -50,8 +50,8 @@ class Mah {
         this.stanalNorKordinatner();
         var voidCells = this.chooseCell(2);
         var newCell = random(voidCells);
-        if(this.number )
     }
+    
     utelGishatich() {
         this.stanalNorKordinatner();
         var voidCells = this.chooseCell(3);

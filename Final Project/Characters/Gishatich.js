@@ -70,13 +70,13 @@ class Gishatich extends KendaniEak{
     }
     bazmanal() {
         if( weatherNum == 0 ) {
-            if (this.energy >= 18) {
+            if (this.energy >= 17) {
                 gishatichner.push(new Gishatich(this.x, this.y, 3));
                 this.energy = 10;
             }
         }
         else if (weatherNum == 1) {
-           if (this.energy >= 19) {
+           if (this.energy >= 18) {
                 gishatichner.push(new Gishatich(this.x, this.y, 3));
                 this.energy = 10;
             }           

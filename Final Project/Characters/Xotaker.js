@@ -28,7 +28,7 @@ class Xotaker extends KendaniEak {
         }
     }
     else if (weatherNum == 1) {
-        if (this.energy >= 15) {
+        if (this.energy >= 16) {
             xotakerner.push(new Xotaker(this.x, this.y));
             this.energy = 5;
         }
