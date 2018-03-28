@@ -13,7 +13,7 @@ var matrix = [
     [0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 2, 0, 1, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 9, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 9, 0, 0, 0, 0, 0, 0, 0],
@@ -25,16 +25,17 @@ var matrix = [
     [0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 9, 2, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 2, 0, 0, 0, 0],
-    [0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6],
+    [0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
 ];
 
 
-var side = 25;
+var side = 30;
 var grassArr = [];
 var xotakerner = [];
 var gishatichner = [];
 var mah = [];
 var Exanak;
+var flood = [];
 
 var weatherInfo = document.getElementById("weather");
 var weatherNum = Math.floor(Math.random() * 2);
@@ -47,7 +48,7 @@ var weatherNum = Math.floor(Math.random() * 2);
 
 function setup() {
     frameRate(10);
-    noStroke();
+    noStroke(); 
     createCanvas(matrix[2].length * side, matrix.length * side);
     background('#acacac');
     for (var y = 0; y < matrix.length; ++y) {
@@ -62,8 +63,11 @@ function setup() {
             else if (matrix[y][x] == 3) {
                 gishatichner.push(new Gishatich(x, y, 3))
             }
-            else if (matrix[y][x] == 6) {
-                mah.push(new Mah(x, y, 6))
+            else if (matrix[y][x] == 4) {
+                mah.push(new Mah(x, y, 4))
+            }
+            else if (matrix[y][x] == 8) {
+                flood.push(new Tsunami(x, y, 15000))
             }
         }
     } 
@@ -91,15 +95,19 @@ function draw() {
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 3) {
-                fill("blue");
+                fill("#FF4500");
                 rect(x * side, y * side, side, side);
             }
-            else if (matrix[y][x] == 6) {
+            else if (matrix[y][x] == 4) {
                 fill("black");
                 rect(x * side, y * side, side, side)
             }
             else if (matrix[y][x] == 9) {
                 fill("#7b7b8c");
+                rect(x * side, y * side, side, side);
+            }
+            else if(matrix[y][x] == 8) {
+                fill("blue");
                 rect(x * side, y * side, side, side);
             }
         }
@@ -119,5 +127,10 @@ function draw() {
         mah[i].utelXotaker();
         mah[i].utelGishatich();
     }
+    for (var i in flood) {
+        flood[i].startFlood();
+    }
 }
+
+
 

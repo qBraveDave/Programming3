@@ -39,9 +39,8 @@ header .highlight, header .current a {
 
 .game-info {
 	float: right;
-	left: 0;
-	margin-left: 0;
 	height: 300px;
 	width: 320px;
-	margin-top: 10px; 
+	font-size: 18px;
+	margin-top: 5px;
 }

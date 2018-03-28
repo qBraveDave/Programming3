@@ -94,7 +94,7 @@ class Gishatich extends KendaniEak{
             }
         }
         else if(weatherNum == 1) {
-            if (this.energy <= -15) {
+            if (this.energy <= -25) {
                 matrix[this.y][this.x] = 0;
                 for (var i in gishatichner) {
                     if (this.x == gishatichner[i].x && this.y == gishatichner[i].y) {
