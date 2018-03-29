@@ -16,7 +16,7 @@
             [this.x + 1, this.y + 1]
         ];
     }
-    yntrelVandak(ch) {
+    chooseCell(ch) {
         var found = [];
         for (var i in this.directions) {
             var x = this.directions[i][0];

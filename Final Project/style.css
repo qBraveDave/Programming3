@@ -7,8 +7,6 @@ body {
 	padding: 0;
 }
 canvas {
-    padding-left: 0;
-    padding-right: 0;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -42,5 +40,5 @@ header .highlight, header .current a {
 	height: 300px;
 	width: 320px;
 	font-size: 18px;
-	margin-top: 5px;
+	margin-top: 5px;	
 }

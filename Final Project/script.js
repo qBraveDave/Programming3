@@ -13,7 +13,7 @@ var matrix = [
     [0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 2, 0, 1, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 9, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 9, 0, 0, 0, 0, 0, 0, 0],
@@ -29,7 +29,7 @@ var matrix = [
 ];
 
 
-var side = 30;
+var side = 25;
 var grassArr = [];
 var xotakerner = [];
 var gishatichner = [];
@@ -38,16 +38,22 @@ var Exanak;
 var flood = [];
 
 var weatherInfo = document.getElementById("weather");
-var weatherNum = Math.floor(Math.random() * 2);
+var weatherNum = Math.floor(Math.random() * 4);
     if (weatherNum == 0) {
         weatherInfo.innerHTML = "Current Weather: Summer ";
     }
     else if (weatherNum == 1) {
         weatherInfo.innerHTML = "Current Weather: Winter ";
-}  
+    }
+    else if (weatherNum == 2) {
+        weatherInfo.innerHTML = "Current Weather : Spring ";
+    }
+    else if (weatherNum == 3) {
+        weatherInfo.innerHTML = "Current Weather : Autumn ";
+    }    
 
 function setup() {
-    frameRate(10);
+    frameRate(9);
     noStroke(); 
     createCanvas(matrix[2].length * side, matrix.length * side);
     background('#acacac');
@@ -79,11 +85,19 @@ function draw() {
         for (var x = 0; x < matrix[y].length; x++) {
 
             if (matrix[y][x] == 1 && weatherNum == 0) {
-                fill("green");
+                fill("#32CD32");
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 1 && weatherNum == 1) {
                 fill("white");
+                rect(x * side, y * side, side, side);
+            }
+            else if (matrix[y][x] == 1 && weatherNum == 2) {
+                fill("green");
+                rect(x * side, y * side, side, side);
+            }
+            else if (matrix[y][x] == 1 && weatherNum == 3) {
+                fill("yellow");
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 0) {
@@ -91,11 +105,11 @@ function draw() {
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 2) {
-                fill("yellow");
+                fill("#FF4500");
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 3) {
-                fill("#FF4500");
+                fill("purple");
                 rect(x * side, y * side, side, side);
             }
             else if (matrix[y][x] == 4) {

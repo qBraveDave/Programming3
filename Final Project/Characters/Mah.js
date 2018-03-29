@@ -50,6 +50,17 @@ class Mah {
         this.stanalNorKordinatner();
         var voidCells = this.chooseCell(2);
         var newCell = random(voidCells);
+        if (newCell) {
+            matrix[this.y][this.x] = 0;
+            matrix[newCell[1]][newCell[0]] = 4;
+            this.y = newCell[1];
+            this.x = newCell[0];
+            for (var i in xotakerner) {
+                if (xotakerner[i].x == this.x && xotakerner[i].y == this.y) {
+                    xotakerner.splice(i, 1);
+                }
+            }
+        }
     }
     
     utelGishatich() {

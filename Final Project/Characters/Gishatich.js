@@ -81,6 +81,18 @@ class Gishatich extends KendaniEak{
                 this.energy = 10;
             }           
         }
+        else if (weatherNum == 2) {
+            if (this.energy >= 17) {
+                 gishatichner.push(new Gishatich(this.x, this.y, 3));
+                 this.energy = 10;
+             }           
+         }
+         else if (weatherNum == 3) {
+            if (this.energy >= 18) {
+                 gishatichner.push(new Gishatich(this.x, this.y, 3));
+                 this.energy = 10;
+             }           
+         }
     }
     mahanal() {
         if (weatherNum == 0) {
@@ -94,7 +106,27 @@ class Gishatich extends KendaniEak{
             }
         }
         else if(weatherNum == 1) {
-            if (this.energy <= -25) {
+            if (this.energy <= -22) {
+                matrix[this.y][this.x] = 0;
+                for (var i in gishatichner) {
+                    if (this.x == gishatichner[i].x && this.y == gishatichner[i].y) {
+                        gishatichner.splice(i, 1)
+                    }
+                }
+            }
+        }
+        else if(weatherNum == 2) {
+            if (this.energy <= -5) {
+                matrix[this.y][this.x] = 0;
+                for (var i in gishatichner) {
+                    if (this.x == gishatichner[i].x && this.y == gishatichner[i].y) {
+                        gishatichner.splice(i, 1)
+                    }
+                }
+            }
+        }
+        else if(weatherNum == 3) {
+            if (this.energy <= -20) {
                 matrix[this.y][this.x] = 0;
                 for (var i in gishatichner) {
                     if (this.x == gishatichner[i].x && this.y == gishatichner[i].y) {

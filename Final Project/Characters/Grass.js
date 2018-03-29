@@ -2,7 +2,7 @@ class Grass extends KendaniEak {
 
     bazmanal() {
         this.multyply++;
-        var norVandak = random(this.yntrelVandak(0));
+        var norVandak = random(this.chooseCell(0));
         if (norVandak) {
             var norXot = new Grass(norVandak[0], norVandak[1], 1);
             grassArr.push(norXot);

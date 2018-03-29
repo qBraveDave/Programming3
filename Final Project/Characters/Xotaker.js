@@ -17,7 +17,7 @@ class Xotaker extends KendaniEak {
    }
    chooseCell(ch) {
        this.stanalNorKordinatner();
-       return super.yntrelVandak(ch);
+       return super.chooseCell(ch);
    }
 
     bazmanal() {
@@ -29,6 +29,18 @@ class Xotaker extends KendaniEak {
     }
     else if (weatherNum == 1) {
         if (this.energy >= 16) {
+            xotakerner.push(new Xotaker(this.x, this.y));
+            this.energy = 5;
+        }
+    }
+    else if (weatherNum == 2) {
+        if (this.energy >= 10) {
+            xotakerner.push(new Xotaker(this.x, this.y));
+            this.energy = 5;
+        }
+    }
+    else if (weatherNum == 3) {
+        if (this.energy >= 13) {
             xotakerner.push(new Xotaker(this.x, this.y));
             this.energy = 5;
         }
