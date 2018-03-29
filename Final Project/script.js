@@ -1,9 +1,9 @@
 var matrix = [
     [0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 9, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0],
     [0, 0, 0, 9, 0, 0, 0, 0, 0, 3, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0],
     [0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 2, 1, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -34,6 +34,7 @@ var grassArr = [];
 var xotakerner = [];
 var gishatichner = [];
 var mah = [];
+var mardik = [];
 var Exanak;
 var flood = [];
 
@@ -53,7 +54,7 @@ var weatherNum = Math.floor(Math.random() * 4);
     }    
 
 function setup() {
-    frameRate(9);
+    frameRate(10);
     noStroke(); 
     createCanvas(matrix[2].length * side, matrix.length * side);
     background('#acacac');
@@ -71,6 +72,9 @@ function setup() {
             }
             else if (matrix[y][x] == 4) {
                 mah.push(new Mah(x, y, 4))
+            }
+            else if (matrix[y][x] == 7) {
+                mardik.push(new Human(x, y , 7))
             }
             else if (matrix[y][x] == 8) {
                 flood.push(new Tsunami(x, y, 15000))
@@ -124,6 +128,10 @@ function draw() {
                 fill("blue");
                 rect(x * side, y * side, side, side);
             }
+            else if(matrix[y][x] == 7) {
+                fill("#ffcd94");
+                rect(x * side, y * side, side, side);
+            }
         }
     }
     for (var i in grassArr) {
@@ -141,6 +149,10 @@ function draw() {
         mah[i].utelXotaker();
         mah[i].utelGishatich();
     }
+    for(var i in mardik) {
+        mardik[i].utelXotaker();
+        mardik[i].utelGishatich();
+}
     for (var i in flood) {
         flood[i].startFlood();
     }

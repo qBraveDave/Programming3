@@ -68,6 +68,7 @@ class Gishatich extends KendaniEak{
             this.sharjvel();
         }
     }
+
     bazmanal() {
         if( weatherNum == 0 ) {
             if (this.energy >= 17) {
@@ -94,6 +95,7 @@ class Gishatich extends KendaniEak{
              }           
          }
     }
+    
     mahanal() {
         if (weatherNum == 0) {
             if (this.energy <= -5) {
