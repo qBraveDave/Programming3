@@ -71,7 +71,7 @@ class Human  {
                     xotakerner.splice(i, 1);
                 }
             }
-            this.energy += 2;
+            this.energy += 3;
             this.bazmanal();
         }
         else {
@@ -88,7 +88,7 @@ class Human  {
             matrix[newCell[1]][newCell[0]] = 7;
             this.y = newCell[1];
             this.x = newCell[0];
-            this.energy += 2;
+            this.energy += 3;
             this.bazmanal();
             for (var i in gishatichner) {
                 if (gishatichner[i].x == this.x && gishatichner[i].y == this.y) {
@@ -105,7 +105,6 @@ class Human  {
     bazmanal() {
 
             if( weatherNum == 0) {
-                console.log("pornik")
                 if (this.energy >= 18) {
                     mardik.push(new Human(this.x, this.y, 7));
                     console.log("Nor Mard")
@@ -113,7 +112,6 @@ class Human  {
                 }
             }
             else if(weatherNum == 2) {
-                console.log("pornik")
                 if (this.energy >= 18) {
                     mardik.push(new Human(this.x, this.y, 7));
                     console.log("Nor Mard")
