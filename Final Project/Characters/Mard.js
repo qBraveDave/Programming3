@@ -57,7 +57,8 @@ class Human  {
         }
     }
 
-    utelXotaker() {
+
+     utelXotaker() {
         this.stanalNorKordinatner();
         var voidCells = this.chooseCell(2);
         var newCell = random(voidCells);
@@ -72,6 +73,7 @@ class Human  {
                 }
             }
             this.energy += 3;
+            this.mahanal();
             this.bazmanal();
         }
         else {
@@ -79,7 +81,7 @@ class Human  {
         }
     }
 
-    utelGishatich() {
+     utelGishatich() {
         this.stanalNorKordinatner();
         var voidCells = this.chooseCell(3);
         var newCell = random(voidCells);
@@ -105,26 +107,24 @@ class Human  {
     bazmanal() {
 
             if( weatherNum == 0) {
-                if (this.energy >= 18) {
+                if (this.energy >= 30) {
                     mardik.push(new Human(this.x, this.y, 7));
-                    console.log("Nor Mard")
-                    this.energy = 10;
-                }
-            }
-            else if(weatherNum == 2) {
-                if (this.energy >= 18) {
-                    mardik.push(new Human(this.x, this.y, 7));
-                    console.log("Nor Mard")
                     this.energy = 10;
                 }
             }
             else if (weatherNum == 1) {
-                if (this.energy >= 19) {
+                if (this.energy >= 35) {
                     mardik.push(new Human(this.x, this.y, 7));
                     this.energy = 10;
                 }           
             }
-            else if (weatherNum == 3) {
+            else if(weatherNum == 30) {
+                if (this.energy >= 18) {
+                    mardik.push(new Human(this.x, this.y, 7));    
+                    this.energy = 10;
+                }
+            }
+            else if (weatherNum == 35) {
                 if (this.energy >= 19) {
                     mardik.push(new Human(this.x, this.y, 7));
                     this.energy = 10;
@@ -133,8 +133,8 @@ class Human  {
         }
 
     mahanal() { 
-        if (weatherNum == 0 && weatherNum == 2) {
-            if (this.energy <= 0) {
+        if (weatherNum == 0) {
+            if (this.energy <= -20) {
                 matrix[this.y][this.x] = 0;
                 for (var i in mardik) {
                     if (this.x == mardik[i].x && this.y == mardik[i].y) {
@@ -143,8 +143,28 @@ class Human  {
                 }
             }
         }
-        else if(weatherNum == 1 && weatherNum == 3) {
-            if (this.energy <= -10) {
+        else if(weatherNum == 1) {
+            if (this.energy <= -25) {
+                matrix[this.y][this.x] = 0;
+                for (var i in mardik) {
+                    if (this.x == mardik[i].x && this.y == mardik[i].y) {
+                        mardik.splice(i, 1)
+                    }
+                }
+            }
+        }
+        else if(weatherNum == 2) {
+            if (this.energy <= -20) {
+                matrix[this.y][this.x] = 0;
+                for (var i in mardik) {
+                    if (this.x == mardik[i].x && this.y == mardik[i].y) {
+                        mardik.splice(i, 1)
+                    }
+                }
+            }
+        }
+        else if(weatherNum == 3) {
+            if (this.energy <= -25) {
                 matrix[this.y][this.x] = 0;
                 for (var i in mardik) {
                     if (this.x == mardik[i].x && this.y == mardik[i].y) {

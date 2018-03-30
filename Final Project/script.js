@@ -152,6 +152,7 @@ function draw() {
     for(var i in mardik) {
         mardik[i].utelXotaker();
         mardik[i].utelGishatich();
+        mardik[i].mahanal();
 }
     for (var i in flood) {
         flood[i].startFlood();
