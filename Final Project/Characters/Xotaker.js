@@ -21,7 +21,7 @@ class Xotaker extends KendaniEak {
    }
 
     bazmanal() {
-    if (weatherNum == 0) {
+    if (weatherNum == 0 || weatherNum == 2) {
         if (this.energy >= 10) {
             xotakerner.push(new Xotaker(this.x, this.y));
             this.energy = 5;
@@ -29,12 +29,6 @@ class Xotaker extends KendaniEak {
     }
     else if (weatherNum == 1) {
         if (this.energy >= 16) {
-            xotakerner.push(new Xotaker(this.x, this.y));
-            this.energy = 5;
-        }
-    }
-    else if (weatherNum == 2) {
-        if (this.energy >= 10) {
             xotakerner.push(new Xotaker(this.x, this.y));
             this.energy = 5;
         }

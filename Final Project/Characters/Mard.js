@@ -106,26 +106,20 @@ class Human  {
 
     bazmanal() {
 
-            if( weatherNum == 0) {
+            if( weatherNum == 0 || weatherNum == 2) {
                 if (this.energy >= 30) {
                     mardik.push(new Human(this.x, this.y, 7));
                     this.energy = 10;
                 }
             }
             else if (weatherNum == 1) {
-                if (this.energy >= 35) {
+                if (this.energy >= 33) {
                     mardik.push(new Human(this.x, this.y, 7));
                     this.energy = 10;
                 }           
             }
-            else if(weatherNum == 30) {
-                if (this.energy >= 18) {
-                    mardik.push(new Human(this.x, this.y, 7));    
-                    this.energy = 10;
-                }
-            }
-            else if (weatherNum == 35) {
-                if (this.energy >= 19) {
+            else if (weatherNum == 3) {
+                if (this.energy >= 32) {
                     mardik.push(new Human(this.x, this.y, 7));
                     this.energy = 10;
                 }           

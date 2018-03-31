@@ -36,19 +36,25 @@ class Tsunami {
 
     startFlood() {
         this.stanalNorKordinatner();
-        var randomCharachter = Math.floor(Math.random() * 5);     
         var characters = this.chooseCell(2);
         var newCell = random(characters);
-
         if (newCell) {
             matrix[this.y][this.x] = 0;
+            matrix[this.y - 1][this.x - 1] = 0
+            matrix[this.y + 1][this.x + 1] = 0 
             matrix[newCell[1]][newCell[0]] = 8;
+            matrix[newCell[1] - 1][newCell[0] + 1] = 8;
+            if (this.x >= 0 && this.x < matrix[0].length && this.y >= 0 && this.y < matrix.length){
+                matrix[this.y][this.x] = 8;4
+                matrix[this.y + 1][this.x + 1] = 8;
+                matrix[this.y - 1][this.x - 1] = 8;
+
+            }   
             this.y = newCell[1];
             this.x = newCell[0];
-
-            for (var i in matrix) {
-                if (matrix[i].x == this.x && matrix[i].y == this.y) {
-                    matrix.splice(i, 1);
+            for (var i in xotakerner) {
+                if (xotakerner[i].x == this.x && xotakerner[i].y == this.y) {
+                    xotakerner.splice(i, 1);
                 }
             }
         }

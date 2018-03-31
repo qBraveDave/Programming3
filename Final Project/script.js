@@ -29,7 +29,7 @@ var matrix = [
 ];
 
 
-var side = 25;
+var side = 28;
 var grassArr = [];
 var xotakerner = [];
 var gishatichner = [];
@@ -39,7 +39,7 @@ var Exanak;
 var flood = [];
 
 var weatherInfo = document.getElementById("weather");
-var weatherNum =                            Math.floor(Math.random() * 4); ;
+var weatherNum = Math.floor(Math.random() * 4); ;
     if (weatherNum == 0) {
         weatherInfo.innerHTML = "Current Weather: Summer ";
     }
@@ -65,16 +65,37 @@ function setup() {
                 grassArr.push(gr);
             }
             else if (matrix[y][x] == 2) {
-                xotakerner.push(new Xotaker(x, y, 2));
+                if (Math.random() < 0.5) {
+                    xotakerner.push(new Xotaker(x, y, 2)); matrix[y][x] == 2;
+                }
+                else {
+                    xotakerner.push(new Xotaker(x, y, 2.5)); 
+                    matrix[y][x] == 2.5;
+                }
             }
-            else if (matrix[y][x] == 3) {
-                gishatichner.push(new Gishatich(x, y, 3))
+            else if (matrix[y][x] == 3) {   
+                if (Math.random() < 0.5) {
+                    gishatichner.push(new Gishatich(x, y, 3)); 
+                    matrix[y][x] == 3;
+                }
+                else {
+                    gishatichner.push(new Gishatich(x, y, 3.5)); 
+                    matrix[y][x] == 3.5;
+                }
             }
             else if (matrix[y][x] == 4) {
                 mah.push(new Mah(x, y, 4))
             }
             else if (matrix[y][x] == 7) {
-                mardik.push(new Human(x, y , 7))
+                 if (Math.random() < 0.5) {
+                    mardik.push(new Human(x, y , 7)) 
+                    matrix[y][x] == 7;
+                }
+                else {
+                    mardik.push(new Human(x, y , 7.5))
+                    matrix[y][x] == 7.5;
+                }
+                
             }
             else if (matrix[y][x] == 8) {
                 flood.push(new Tsunami(x, y, 15000))
@@ -155,11 +176,11 @@ function draw() {
         mardik[i].utelXotaker();
         mardik[i].utelGishatich();
         mardik[i].mahanal();
-}
-    for (var i in flood) {
-        flood[i].startFlood();
     }
-}
+
+} 
+
+
 
 
 
