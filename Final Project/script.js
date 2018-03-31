@@ -2,7 +2,7 @@ var matrix = [
     [0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 9, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 9, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0],
     [0, 0, 0, 9, 0, 0, 0, 0, 0, 3, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0],
     [0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -29,7 +29,7 @@ var matrix = [
 ];
 
 
-var side = 28;
+var side = 25;
 var grassArr = [];
 var xotakerner = [];
 var gishatichner = [];
@@ -65,37 +65,16 @@ function setup() {
                 grassArr.push(gr);
             }
             else if (matrix[y][x] == 2) {
-                if (Math.random() < 0.5) {
-                    xotakerner.push(new Xotaker(x, y, 2)); matrix[y][x] == 2;
-                }
-                else {
-                    xotakerner.push(new Xotaker(x, y, 2.5)); 
-                    matrix[y][x] == 2.5;
-                }
+                xotakerner.push(new Xotaker(x, y, 2));
             }
-            else if (matrix[y][x] == 3) {   
-                if (Math.random() < 0.5) {
-                    gishatichner.push(new Gishatich(x, y, 3)); 
-                    matrix[y][x] == 3;
-                }
-                else {
-                    gishatichner.push(new Gishatich(x, y, 3.5)); 
-                    matrix[y][x] == 3.5;
-                }
+            else if (matrix[y][x] == 3) {
+                gishatichner.push(new Gishatich(x, y, 3))
             }
             else if (matrix[y][x] == 4) {
                 mah.push(new Mah(x, y, 4))
             }
             else if (matrix[y][x] == 7) {
-                 if (Math.random() < 0.5) {
-                    mardik.push(new Human(x, y , 7)) 
-                    matrix[y][x] == 7;
-                }
-                else {
-                    mardik.push(new Human(x, y , 7.5))
-                    matrix[y][x] == 7.5;
-                }
-                
+                mardik.push(new Human(x, y , 7))
             }
             else if (matrix[y][x] == 8) {
                 flood.push(new Tsunami(x, y, 15000))
