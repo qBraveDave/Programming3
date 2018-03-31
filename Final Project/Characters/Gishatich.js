@@ -59,6 +59,7 @@ class Gishatich extends KendaniEak{
             for (var i in xotakerner) {
                 if (xotakerner[i].x == this.x && xotakerner[i].y == this.y) {
                     xotakerner.splice(i, 1);
+                    stats.xotakerner.eaten++;
                 }
             }
             this.energy += 2;
@@ -74,24 +75,28 @@ class Gishatich extends KendaniEak{
             if (this.energy >= 17) {
                 gishatichner.push(new Gishatich(this.x, this.y, 3));
                 this.energy = 10;
+                stats.gishatichner.bazmacele++;
             }
         }
         else if (weatherNum == 1) {
            if (this.energy >= 18) {
                 gishatichner.push(new Gishatich(this.x, this.y, 3));
                 this.energy = 10;
+                stats.gishatichner.bazmacele++;
             }           
         }
         else if (weatherNum == 2) {
             if (this.energy >= 17) {
                  gishatichner.push(new Gishatich(this.x, this.y, 3));
                  this.energy = 10;
+                 stats.gishatichner.bazmacele++;
              }           
          }
          else if (weatherNum == 3) {
             if (this.energy >= 18) {
                  gishatichner.push(new Gishatich(this.x, this.y, 3));
                  this.energy = 10;
+                 stats.gishatichner.bazmacele++;
              }           
          }
     }
@@ -102,7 +107,8 @@ class Gishatich extends KendaniEak{
                 matrix[this.y][this.x] = 0;
                 for (var i in gishatichner) {
                     if (this.x == gishatichner[i].x && this.y == gishatichner[i].y) {
-                        gishatichner.splice(i, 1)
+                        gishatichner.splice(i, 1);
+                        stats.gishatichner.mahacele++;
                     }
                 }
             }
@@ -112,7 +118,8 @@ class Gishatich extends KendaniEak{
                 matrix[this.y][this.x] = 0;
                 for (var i in gishatichner) {
                     if (this.x == gishatichner[i].x && this.y == gishatichner[i].y) {
-                        gishatichner.splice(i, 1)
+                        gishatichner.splice(i, 1);
+                        stats.gishatichner.mahacele++;
                     }
                 }
             }
@@ -122,7 +129,8 @@ class Gishatich extends KendaniEak{
                 matrix[this.y][this.x] = 0;
                 for (var i in gishatichner) {
                     if (this.x == gishatichner[i].x && this.y == gishatichner[i].y) {
-                        gishatichner.splice(i, 1)
+                        gishatichner.splice(i, 1);
+                        stats.gishatichner.mahacele++;
                     }
                 }
             }
@@ -132,7 +140,8 @@ class Gishatich extends KendaniEak{
                 matrix[this.y][this.x] = 0;
                 for (var i in gishatichner) {
                     if (this.x == gishatichner[i].x && this.y == gishatichner[i].y) {
-                        gishatichner.splice(i, 1)
+                        gishatichner.splice(i, 1);
+                        stats.gishatichner.mahacele++;
                     }
                 }
             }

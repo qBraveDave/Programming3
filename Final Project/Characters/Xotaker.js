@@ -25,18 +25,21 @@ class Xotaker extends KendaniEak {
         if (this.energy >= 10) {
             xotakerner.push(new Xotaker(this.x, this.y));
             this.energy = 5;
+            stats.xotakerner.bazmacele++;
         }
     }
     else if (weatherNum == 1) {
         if (this.energy >= 16) {
             xotakerner.push(new Xotaker(this.x, this.y));
             this.energy = 5;
+            stats.xotakerner.bazmacele++;
         }
     }
     else if (weatherNum == 3) {
         if (this.energy >= 13) {
             xotakerner.push(new Xotaker(this.x, this.y));
             this.energy = 5;
+            stats.xotakerner.bazmacele++;
         }
     }
     }
@@ -46,7 +49,7 @@ class Xotaker extends KendaniEak {
             for (var i in xotakerner) {
                 if (this.x == xotakerner[i].x && this.y == xotakerner[i].y) {
                     xotakerner.splice(i, 1)
-
+                    stats.xotakerner.mahacele++;
                 }
             }
         }
@@ -78,6 +81,7 @@ class Xotaker extends KendaniEak {
             for (var i in grassArr) {
                 if (grassArr[i].x == this.x && grassArr[i].y == this.y) {
                     grassArr.splice(i, 1);
+                    stats.grass.eaten++;
                 }
 
             }

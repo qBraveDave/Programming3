@@ -58,6 +58,8 @@ class Mah {
             for (var i in xotakerner) {
                 if (xotakerner[i].x == this.x && xotakerner[i].y == this.y) {
                     xotakerner.splice(i, 1);
+                    stats.xotakerner.eaten++;
+                    stats.mah.ate++;
                 }
             }
         }
@@ -75,6 +77,8 @@ class Mah {
             for (var i in gishatichner) {
                 if (gishatichner[i].x == this.x && gishatichner[i].y == this.y) {
                     gishatichner.splice(i, 1);
+                    stats.gishatichner.eaten++;
+                    stats.mah.ate++;
                 }
             }
         }

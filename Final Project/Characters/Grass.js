@@ -8,6 +8,7 @@ class Grass extends KendaniEak {
             grassArr.push(norXot);
             matrix[norVandak[1]][norVandak[0]] = 1;
             this.multiply = 0;
+            stats.grass.bazmacele++;
         }
     }
 
