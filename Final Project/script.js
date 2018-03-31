@@ -39,7 +39,7 @@ var Exanak;
 var flood = [];
 
 var weatherInfo = document.getElementById("weather");
-var weatherNum = Math.floor(Math.random() * 4);
+var weatherNum =                            Math.floor(Math.random() * 4); ;
     if (weatherNum == 0) {
         weatherInfo.innerHTML = "Current Weather: Summer ";
     }
@@ -146,8 +146,10 @@ function draw() {
         gishatichner[i].mahanal();
     }
     for (var i in mah) {
+        if (weatherNum == 0 || weatherNum == 2 || weatherNum == 3) {
         mah[i].utelXotaker();
         mah[i].utelGishatich();
+        }
     }
     for(var i in mardik) {
         mardik[i].utelXotaker();

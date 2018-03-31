@@ -133,7 +133,7 @@ class Human  {
         }
 
     mahanal() { 
-        if (weatherNum == 0) {
+        if (weatherNum == 0 || weatherNum == 2) {
             if (this.energy <= -20) {
                 matrix[this.y][this.x] = 0;
                 for (var i in mardik) {
@@ -144,17 +144,7 @@ class Human  {
             }
         }
         else if(weatherNum == 1) {
-            if (this.energy <= -25) {
-                matrix[this.y][this.x] = 0;
-                for (var i in mardik) {
-                    if (this.x == mardik[i].x && this.y == mardik[i].y) {
-                        mardik.splice(i, 1)
-                    }
-                }
-            }
-        }
-        else if(weatherNum == 2) {
-            if (this.energy <= -20) {
+            if (this.energy <= -40) {
                 matrix[this.y][this.x] = 0;
                 for (var i in mardik) {
                     if (this.x == mardik[i].x && this.y == mardik[i].y) {
@@ -164,7 +154,7 @@ class Human  {
             }
         }
         else if(weatherNum == 3) {
-            if (this.energy <= -25) {
+            if (this.energy <= -35) {
                 matrix[this.y][this.x] = 0;
                 for (var i in mardik) {
                     if (this.x == mardik[i].x && this.y == mardik[i].y) {
