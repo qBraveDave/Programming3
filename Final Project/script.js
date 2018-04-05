@@ -28,6 +28,10 @@ var matrix = [
     [0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
 ];
 
+var express = require('express');
+var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 
 var side = 25;
 var grassArr = [];
@@ -92,6 +96,17 @@ function setup() {
 }
 
 function draw() {
+ if(frameCount % 60 == 0){
+        var statsJSON = JSON.stringify(stats);
+
+        function sendStats(event) {
+
+            socket.emit("send statistic", statsJSON);
+
+        }
+
+        sendStats();
+    }
 
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
